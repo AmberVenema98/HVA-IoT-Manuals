@@ -368,6 +368,11 @@ Now open your Telegram application on your smartphone. Type /start and press ent
 
 ![Led on and off](image/Led-aan-uit.jpg)
 
+## Sources
+* ![DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
+* ![Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
+* ![Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
+
 
 
 
