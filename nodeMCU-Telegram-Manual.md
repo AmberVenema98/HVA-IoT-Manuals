@@ -64,6 +64,8 @@ Open 'echobot' via File > Examples > UniversalTelegramBot > ESP8266 > EchoBot
 
 ![Library echobot](image/echobot.jpg)
 
+You may have code like below, the code is correct, but some data and the code about messages are not included.
+
 ```cpp
 /*******************************************************************
 *  An example of bot that echos back any messages received         *
@@ -330,7 +332,34 @@ If this value is equal to your command, for example “lights on”, turn on the
 ``` 
 Also think of what text you want in the else if to turn it off (HIGH).
 
-Connect your LED strip and activate disco mode!
+### Connect the LED's
+Examine the LED strip included in the kit. If you look very closely you will see the following text next to each LED:
+
+* +5v represents the current
+* Din stands for a digital signal
+* G Stands for ground (earth)
+
+Three cables are connected to one of the ends of the LED strip:
+
+* There is a red wire on the +5v
+* There is a yellow wire on the Din
+* There is a black wire on the G
+
+The LED strip works on direct current and just like a battery, the LED strip has a plus and a minus. The plus here is +5v and the minus is the G. The digital signal Din is the input to send your command.
+
+Study your NodeMcu. On the dark side of the board it says in small text next to the pins what they are for.
+
+![LEDS](image/LEDS.jpg)
+
+1. Connect the Din (yellow) of your LED strip to the D1 pin of your NodeMcu
+
+2. Connect the +5V (red) of your LED strip to one of the 3v (3 volt) pins of your NodeMcu
+
+3. Connect the G (black) of your LED strip to the G next to the 3v pin. This may also be a different G pin, but it is clearer and easier to use them side by side
+
+![Node MCU](image/NODEMCU.jpg)
+
+## Turn The Lights On!
 
 ![Led on and off](image/Led-aan-uit.jpg)
 
