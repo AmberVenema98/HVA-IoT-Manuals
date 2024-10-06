@@ -360,6 +360,11 @@ Study your NodeMcu. On the dark side of the board it says in small text next to 
 ![Node MCU](image/NODEMCU.jpg)
 
 ## Turn The Lights On!
+Now open your Telegram application on your smartphone. Type /start and press enter to send it to your newly created bot. As a result, this will show you a welcome message from the bot. All the different commands will be displayed which you can enter one by one.
+
+* Send /led2_on to turn GPIO2 ON
+* Send /led2_off to turn GPIO2 OFF
+* Send /get_state to request the current GPIO state
 
 ![Led on and off](image/Led-aan-uit.jpg)
 
