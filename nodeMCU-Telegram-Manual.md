@@ -10,6 +10,7 @@ This guide shows how to control the ESP32 or ESP8266 NodeMCU GPIOs from anywhere
 * LED strip
 * Arduino IDE
 * WIFI connection
+* Micro USB cable
 
 ## Step 1: Making a bot
 Go to Google Play or App Store, download and install Telegram. 
@@ -58,8 +59,9 @@ Choose for the 1.1.0 version
 ![Universal error](image/library-universal.jpg)
 ![Library](image/library-universal2.jpg)
 
+## Step 3: Port and Board
 
-## Step 3: Echobot
+## Step 4: Echobot
 Open 'echobot' via File > Examples > UniversalTelegramBot > ESP8266 > EchoBot
 
 ![Library echobot](image/echobot.jpg)
@@ -298,7 +300,7 @@ Upload your code, open the serial monitor. Check here whether your WiFi works.
 
 (uitleg uploaden)
 
-## Step 4: Chat with Bot
+## Step 5: Chat with Bot
 If you now send a message from Telegram to your bot, your ESP will listen and send the message back as an echo to Telegram Bot.
 
 (laten zien)
@@ -316,7 +318,7 @@ You can edit within the loop of numNewMessages to add intelligence and customize
 bot.sendMessage(bot.messages[i].chat_id, "Are you alright comrade?", "");
 ```
 
-## Step 5: LED Light
+## Step 6: LED Light
 
 Configure the built-in LED as output, add the following code to the void setup:
 
@@ -359,7 +361,7 @@ Study your NodeMcu. On the dark side of the board it says in small text next to 
 
 ![Node MCU](image/NODEMCU.jpg)
 
-## Turn The Lights On!
+## Step 7: Turn The Lights On!
 Now open your Telegram application on your smartphone. Type /start and press enter to send it to your newly created bot. As a result, this will show you a welcome message from the bot. All the different commands will be displayed which you can enter one by one.
 
 * Send /led2_on to turn GPIO2 ON
@@ -369,9 +371,9 @@ Now open your Telegram application on your smartphone. Type /start and press ent
 ![Led on and off](image/Led-aan-uit.jpg)
 
 ## Sources
-* ![DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
-* ![Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
-* ![Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
+* [DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
+* [Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
+* [Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
 
 
 
