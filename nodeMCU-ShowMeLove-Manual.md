@@ -141,4 +141,58 @@ void loop() {
 
 }
 ```
+## Step 3: Install Key Switch and LED
+You do this and that lalalalla
+
+![Switch in MCU](image/.jpg)
+
+![LED in MCU](image/.jpg)
+
+Now change 
+
+``` cpp
+// digital pin 5
+#define BUTTON_PIN 5
+```
+
+to:
+
+``` cpp
+// digital pin D0
+#define BUTTON_PIN D0
+```
+And fill in your account name in "AIO_FEED_OWNER" and "FEED-NAME" 
+
+``` cpp
+// the Adafruit IO username of whomever owns the feed
+#define FEED_OWNER "AIO_FEED_OWNER"
+
+// set up a shared feed between you and the FEED_OWNER 
+// make sure you have both read AND write access to this feed
+AdafruitIO_Feed *sharedFeed = io.feed("FEED-NAME", FEED_OWNER);
+```
+
+In the config.h tab, you need to fill in your account name and key from Adafruit. But also your WIFI information. To get there click the tab next to adafruitio_20_shared_feed_write.ino.  
+
+![Fill in config](image/Fill-In.jpg)
+
+To find your key go to your account in Adafruit IO and click on the Yellow Key button. Now you see your username and IO Key. Copy this and put it in the config.h file.
+
+![Adafruit key](image/Key.jpg)
+
+Push your code. To see if it worked go to your Serial Monitor and click your Key Switch. You can see a row of 1 and 0.
+
+![Adafruit connection](image/AdafruitConnection.jpg)
+
+If you see nothing happening, it could be that you have the wrong baud selected. In the code it is 115200 but the file says 9600 baud. So try changing that.
+
+![Serial monitor baud](image/SerialMonitor.jpg)
+
+Since the connection worked you can see the time you click on the button on your account of Adafruit. You can even see how long the button was pressed.
+
+![Clicking working in Adafruit](image/AdafruitWorking.jpg)
+
+![Clicking working numbers](image/Click.jpg)
+
+
 

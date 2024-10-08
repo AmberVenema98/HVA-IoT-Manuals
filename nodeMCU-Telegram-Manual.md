@@ -53,15 +53,11 @@ Go to Sketch > Include Library > Manage Libraries and add “ArduinoJson” Beno
 
 ### Universal Telegram Bot
 And add the 'universal telegram bot' via the 'Library Manager' of Arduino.
-
 Choose for the 1.1.0 version
 
-![Universal error](image/library-universal.jpg)
 ![Library](image/library-universal2.jpg)
 
-## Step 3: Port and Board
-
-## Step 4: Echobot
+## Step 3: Echobot
 Open 'echobot' via File > Examples > UniversalTelegramBot > ESP8266 > EchoBot
 
 ![Library echobot](image/echobot.jpg)
@@ -300,6 +296,8 @@ Upload your code, open the serial monitor. Check here whether your WiFi works.
 
 (uitleg uploaden)
 
+## Step 4: Port and Board
+
 ## Step 5: Chat with Bot
 If you now send a message from Telegram to your bot, your ESP will listen and send the message back as an echo to Telegram Bot.
 
@@ -374,6 +372,13 @@ Now open your Telegram application on your smartphone. Type /start and press ent
 * [DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
 * [Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
 * [Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
+
+## What went wrong?
+What i saw when downloading Universal Telegram Bot was:
+
+![Universal error](image/library-universal.jpg)
+
+Eventhough i already downloaded ArduinoJson, so when i tried the 1.1.0 version of Universal Telegram Bot i did work. But now i dont use the latest version of ArduinoJson because that wasn't compatible with the 1.3.0 version for some reason. And the 1.1.0 version of Universal Telegram only was compatible with the 5.13.5 version of ArduinoJson, so used that. 
 
 
 
