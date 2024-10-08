@@ -7,7 +7,6 @@ This guide shows how to control the ESP32 or ESP8266 NodeMCU GPIOs from anywhere
 
 ### What do you need?
 * NodeMCU Arduino Board, ESP8266
-* LED strip
 * Arduino IDE
 * WIFI connection
 * Micro USB cable
@@ -34,7 +33,7 @@ If your bot is successfully created, you’ll receive a message with a link to a
 ### Get your Telegram User ID
 Anyone that knows your bot username can interact with it. To make sure that we ignore messages that are not from our Telegram account (or any authorized users), you can get your Telegram User ID. Then, when your telegram bot receives a message, the ESP can check whether the sender ID corresponds to your User ID and handle the message or ignore it.
 
-In your Telegram account, search for “IDBot” or open this link t.me/myidbot in your smartphone.
+In your Telegram account, search for “IDBot” or open this link  [MyIDBot](t.me/myidbot) in your smartphone.
 
 ![IDBot](image/idbot.jpg)
 
@@ -131,7 +130,7 @@ void loop() {
 
 ```
 
-The following code allows you to control your ESP32 or ESP8266 NodeMCU GPIOs by sending messages to a Telegram Bot. To make it work for you, you need to enter your network details (SSID and password), the Telegram Bot Token and your Telegram user ID.
+The following code allows you to control your ESP32 or ESP8266 NodeMCU GPIOs by sending messages to a Telegram Bot. To make it work for you, you need to enter your network details (SSID and password), the Telegram Bot Token and your Telegram user ID. Copy this:
 
 ```cpp
 /*
@@ -292,23 +291,8 @@ Insert your chat ID. The one you’ve got from the IDBot.
 #define CHAT_ID "XXXXXXXXXX"
 ```
 
-Upload your code, open the serial monitor. Check here whether your WiFi works.
-
-(uitleg uploaden)
-
-## Step 4: Port and Board
-
-## Step 5: Chat with Bot
-If you now send a message from Telegram to your bot, your ESP will listen and send the message back as an echo to Telegram Bot.
-
-(laten zien)
-
-Now display the text in your serial monitor, within the for loop you do a
-
-
-```cpp
-Serial.println(bot.messages[i].text);
-```
+## Step 4: Chat with Bot
+Now display the text in your serial monitor.
 
 You can edit within the loop of numNewMessages to add intelligence and customize the text it returns. Try sending an additional message using a second call to sendMessage. 
 
@@ -316,14 +300,7 @@ You can edit within the loop of numNewMessages to add intelligence and customize
 bot.sendMessage(bot.messages[i].chat_id, "Are you alright comrade?", "");
 ```
 
-## Step 6: LED Light
-
-Configure the built-in LED as output, add the following code to the void setup:
-
-```cpp
-pinMode(LED_BUILTIN, OUTPUT); // Initialize the LED_BUILTIN pin as an output
-```
-
+## Step 5: LED Light
 We are now going to apply rudimentary intelligence. Within the same loop we create an if / else if that listens to .text value.
 
 If this value is equal to your command, for example “lights on”, turn on the built-in LED 
@@ -332,53 +309,125 @@ If this value is equal to your command, for example “lights on”, turn on the
 ``` 
 Also think of what text you want in the else if to turn it off (HIGH).
 
-### Connect the LED's
-Examine the LED strip included in the kit. If you look very closely you will see the following text next to each LED:
+``` cpp
+if (text == "/start") {
+      String welcome = "Welcome, " + from_name + ".\n";
+      welcome += "Use the following commands to control your outputs.\n\n";
+      welcome += "/led_on to turn GPIO ON \n";
+      welcome += "/led_off to turn GPIO OFF \n";
+      welcome += "/state to request current GPIO state \n";
+      bot.sendMessage(chat_id, welcome, "");
+    }
 
-* +5v represents the current
-* Din stands for a digital signal
-* G Stands for ground (earth)
+    if (text == "/led_on") {
+      bot.sendMessage(chat_id, "LED state set to ON", "");
+      ledState = HIGH;
+      digitalWrite(ledPin, ledState);
+    }
+    
+    if (text == "/led_off") {
+      bot.sendMessage(chat_id, "LED state set to OFF", "");
+      ledState = LOW;
+      digitalWrite(ledPin, ledState);
+    }
+    
+    if (text == "/state") {
+      if (digitalRead(ledPin)){
+        bot.sendMessage(chat_id, "LED is ON", "");
+      }
+      else{
+        bot.sendMessage(chat_id, "LED is OFF", "");
+      }
+    }
+```
+## Step 6: Port and Board
+Choose for the NodeMCU 1.0 (ESP-12E Module) and your connected port. To find this go to Tools > Board > esp8266 > NodeMCU 1.0 (ESP-12E Module).
 
-Three cables are connected to one of the ends of the LED strip:
+![Board](image/Board.jpg)
 
-* There is a red wire on the +5v
-* There is a yellow wire on the Din
-* There is a black wire on the G
+For the port you also go to Tools > Port and select the right Port. It could be that you don't have any connection and your Port is disabled like this:
 
-The LED strip works on direct current and just like a battery, the LED strip has a plus and a minus. The plus here is +5v and the minus is the G. The digital signal Din is the input to send your command.
+![Port Disabled](image/PortDisabled.jpg)
+![No Port](image/NoPort.jpg)
 
-Study your NodeMcu. On the dark side of the board it says in small text next to the pins what they are for.
+There are some things you can do to fix that:
+* Check the USB cable: Ensure you're using a data cable, not just a charging cable. Try a different USB cable if possible.
+* Install drivers: NodeMCU usually needs CH340G or CP210x drivers.
+Download and install the appropriate driver for your board.
+* Restart your computer:
+* Select the correct board
+Try different USB ports
+* Update Arduino IDE
+* Check Windows security (Windows): Sometimes Windows security can block new USB devices.
 
-![LEDS](image/LEDS.jpg)
+## Step 7: Upload code
+Upload your code and open the Serial Monitor to verify if your WiFi is functioning. To upload the code, click the blue arrow in the top left corner. 
 
-1. Connect the Din (yellow) of your LED strip to the D1 pin of your NodeMcu
+![Upload](image/Upload.jpg)
 
-2. Connect the +5V (red) of your LED strip to one of the 3v (3 volt) pins of your NodeMcu
+Nothing happening? Check the baud on your right, this should be 115200.
 
-3. Connect the G (black) of your LED strip to the G next to the 3v pin. This may also be a different G pin, but it is clearer and easier to use them side by side
+![No connection](image/NoConnect.jpg)
 
-![Node MCU](image/NODEMCU.jpg)
+Having trouble locating the Serial Monitor? Click on the icon in the top right corner to open it. Then, set the baud rate to 115200 at the bottom. Upload the code again, and you should see the connection being established.
 
-## Step 7: Turn The Lights On!
-Now open your Telegram application on your smartphone. Type /start and press enter to send it to your newly created bot. As a result, this will show you a welcome message from the bot. All the different commands will be displayed which you can enter one by one.
+![No Serial Monitor](image/ConnectionBot.jpg)
 
-* Send /led2_on to turn GPIO2 ON
-* Send /led2_off to turn GPIO2 OFF
-* Send /get_state to request the current GPIO state
 
-![Led on and off](image/Led-aan-uit.jpg)
+## Step 8: Turn The Lights On!
+Now open your Telegram application on your smartphone. Go to BotFather and find the link to your newly created bot. The link should look like: t.me/(your named bot).
+
+![Link bot](image/bot3.jpg)
+
+Type /start and press enter to send it to your bot. As a result, this will show you a welcome message from the bot. All the different commands will be displayed which you can enter one by one.
+
+* Send /led_on to turn GPIO2 ON
+* Send /led_off to turn GPIO2 OFF
+* Send /state to request the current GPIO state
+
+![Led on and off chat](image/Led-aan-uit.jpg)
+
+Now you should see the light turning on:
+
+![Led on](image/Light.jpg)
 
 ## Sources
 * [DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
 * [Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
 * [Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
 
+## Problem solving
+### Serial Monitor
+Can't see the Serial Monitor working? It could be that the wrong baud is sellected. Check the baud on your right, this should be 115200.
+
+![No connection](image/NoConnect.jpg)
+
+Having trouble locating the Serial Monitor? Click on the icon in the top right corner to open it. Then, set the baud rate to 115200 at the bottom. Upload the code again, and you should see the connection being established.
+
+![No Serial Monitor](image/ConnectionBot.jpg)
+
+### Port
+Do you get an error message about your port not being connected but you got the board right? 
+
+![Port Disabled](image/PortDisabled.jpg)
+![No Port](image/NoPort.jpg)
+
+There are some things you can do to fix that:
+* Check the USB cable: Ensure you're using a data cable, not just a charging cable. Try a different USB cable if possible.
+* Install drivers: NodeMCU usually needs CH340G or CP210x drivers.
+Download and install the appropriate driver for your board.
+* Restart your computer
+* Select the correct board
+Try different USB ports
+* Update Arduino IDE
+* Check Windows security (Windows): Sometimes Windows security can block new USB devices
+
 ## What went wrong?
 What i saw when downloading Universal Telegram Bot was:
 
 ![Universal error](image/library-universal.jpg)
 
-Eventhough i already downloaded ArduinoJson, so when i tried the 1.1.0 version of Universal Telegram Bot i did work. But now i dont use the latest version of ArduinoJson because that wasn't compatible with the 1.3.0 version for some reason. And the 1.1.0 version of Universal Telegram only was compatible with the 5.13.5 version of ArduinoJson, so used that. 
+Even though I had already downloaded ArduinoJson, the 1.1.0 version of the Universal Telegram Bot worked when I tried it. However, I’m not using the latest version of ArduinoJson because it wasn’t compatible with the 1.3.0 version of the bot for some reason. The 1.1.0 version of the Universal Telegram Bot is only compatible with ArduinoJson 5.13.5, so I used that version instead. 
 
 
 
