@@ -180,13 +180,21 @@ To find your key go to your account in Adafruit IO and click on the Yellow Key b
 
 ![Adafruit key](image/Key.jpg)
 
-Push your code. To see if it worked go to your Serial Monitor and click your Key Switch. You can see a row of 1 and 0.
+
+## Step 4: Upload the code
+Upload your code and open the Serial Monitor to verify if your WiFi is functioning. To upload the code, click the blue arrow in the top left corner. 
+
+![Upload](image/Upload.jpg)
+
+To see if it worked go to your Serial Monitor and click your Key Switch. You can see a row of 1 and 0. If you see nothing happening, it could be that you have the wrong baud selected. In the code it is 115200 but the file says 9600 baud. So try changing that.
+
+![Serial monitor baud](image/Serial-Monitor.jpg)
+![No connection](image/NoConnect.jpg)
+
+Upload the code again and you should see this:
 
 ![Adafruit connection](image/AdafruitConnection.jpg)
 
-If you see nothing happening, it could be that you have the wrong baud selected. In the code it is 115200 but the file says 9600 baud. So try changing that.
-
-![Serial monitor baud](image/SerialMonitor.jpg)
 
 Since the connection worked you can see the time you click on the button on your account of Adafruit. You can even see how long the button was pressed.
 
