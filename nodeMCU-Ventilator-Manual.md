@@ -61,11 +61,11 @@ If you don't yet have Arduino IDE installed, download it [here](https://www.ardu
 
 ![Add library](image/DownloadArduino.jpg)
 
-You also need to install the Arduino_JSON library. You can install this library in the Arduino IDE Library Manager. Just go to Sketch > Include Library > Manage Libraries and search for "ArduinoJson" by Benoit Blanchon. Download the latest version.
+You also need to install the Arduino_JSON library. You can install this library in the Arduino IDE Library Manager. Just go to Sketch > Include Library > Manage Libraries and search for "Arduino_JSON" by Arduino. Download the latest version.
 
 ![Add library](image/Library.jpg)
 
-![Add ArduinoJson](image/arduinojson.jpg)
+![Add ArduinoJson](image/Arduino_JSON.jpg)
 
 ## Step 3: Connecting to OpenWeatherMap
 After installing the necessary libraries, copy the following code to your Arduino IDE, but don’t upload it yet. You need to make some changes to make it work for you.
