@@ -6,7 +6,7 @@ This guide shows how to control the ESP32 or ESP8266 NodeMCU GPIOs from anywhere
 ![Telegram and ESP8266](image/intro.jpg)
 
 ### What do you need?
-* NodeMCU Arduino Board, ESP8266
+* NodeMCU Arduino Board (ESP8266)
 * Arduino IDE
 * WIFI connection
 * Micro USB cable
@@ -47,7 +47,7 @@ To interact with the Telegram bot, we’ll use the Universal Telegram Bot Librar
 ### ArduinoJson
 Go to Sketch > Include Library > Manage Libraries and add “ArduinoJson” Benoit Blanchon. We are using version 5.13.5.
 
-![Library](image/library.jpg)
+![Library](image/Library.jpg)
 ![ArduinoJson](image/ArduinoJson.jpg)
 
 ### Universal Telegram Bot
@@ -59,7 +59,7 @@ Choose for the 1.1.0 version
 ## Step 3: Echobot
 Open 'echobot' via File > Examples > UniversalTelegramBot > ESP8266 > EchoBot
 
-![Library echobot](image/echobot.jpg)
+![Library echobot](image/Echo-bot.jpg)
 
 You may have code like below, the code is correct, but some data and the code about messages are not included.
 
