@@ -408,11 +408,11 @@ Now we will create an message that the app will send to us depending on the temp
 
 ![Write action message](image/ActionField.jpg)
 
-The If This Then That has been completed. Choose for the free trial or subscribe. Of you choose for the free plan you can always cancel your subscription before you have to pay. So choose the right plan for yourself.
+The If This Then That setup is complete. You can either start a free trial or subscribe. If you choose for the free plan, you can cancel anytime before being charged. Be sure to select the plan that best suits your needs.
 
 ![IFTTT Try for free](image/TryFree.jpg)
 
-After the subscription you can change your title if you want and than click on 'Finish'
+After your selected subscription you can change the title of the IFTTT Applet if you want and than click on 'Finish'.
 
 ![Finish IFTTT Applet](image/FinishIFTTT.jpg)
 
