@@ -252,5 +252,12 @@ Try different USB ports
 * [OpenWeather](https://openweathermap.org/)
 * [DfETsrIOT Show me Love](https://icthva.sharepoint.com/:w:/s/FDMCI_ORG__CMD-Amsterdam/ESGyAezw-g9Nu46CfppUhk8BYspIz1gFlXjr0YSv6hBpNg?e=U5EPx7)
 
+## What went wrong?
+I was able to get the Key switch working, but the two Nodes didn’t communicate with each other. I tried using two different Arduino IDE files, one with the Key switch code and one without. After discussing with a classmate, she explained that "Adafruitio_20_shared_feed_write" was for one Node, and "2. Adafruitio_21_feedread" was for the other. However, I still didn’t fully understand how the two were supposed to connect.
+
+Since I couldn’t find any helpful information online, I decided to focus on making the Key switch work, which I successfully managed to do.
+
+
+
 
 
