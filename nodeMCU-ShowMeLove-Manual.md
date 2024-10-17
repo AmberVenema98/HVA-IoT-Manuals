@@ -6,7 +6,6 @@ The goal is to have your nodes communicate in pairs. Node 1 sends something to n
 ### What do you need?
 * 2x NodeMCU Arduino Board, ESP8266
 * Arduino IDE
-* LED strip
 * 2x Micro USB cable
 * WIFI connection
 * Key Switch Sensor
@@ -141,12 +140,33 @@ void loop() {
 
 }
 ```
-## Step 3: Install Key Switch and LED
-You do this and that lalalalla
 
-![Switch in MCU](image/.jpg)
+## Step 3: Port and Board
+Choose for the NodeMCU 1.0 (ESP-12E Module) and your connected port. To find this go to Tools > Board > esp8266 > NodeMCU 1.0 (ESP-12E Module).
 
-![LED in MCU](image/.jpg)
+![Board](image/Board.jpg)
+
+For the port you also go to Tools > Port and select the right Port. It could be that you don't have any connection and your Port is disabled like this:
+
+![Port Disabled](image/PortDisabled.jpg)
+![No Port](image/NoPort.jpg)
+
+There are some things you can do to fix that:
+* Check the USB cable: Ensure you're using a data cable, not just a charging cable. Try a different USB cable if possible.
+* Install drivers: NodeMCU usually needs CH340G or CP210x drivers.
+Download and install the appropriate driver for your board.
+* Restart your computer:
+* Select the correct board
+Try different USB ports
+* Update Arduino IDE
+* Check Windows security (Windows): Sometimes Windows security can block new USB devices.
+
+## Step 4: Install Key Switch
+Connect your push button: S (signal) to D0, - to GND and the other pin to 3.3V. So like this:
+
+![Druk knop](image/DrukKnop.jpg)
+
+![Switch in MCU](image/NodeMCUDrukKnop.jpg)
 
 Now change 
 
@@ -181,7 +201,7 @@ To find your key go to your account in Adafruit IO and click on the Yellow Key b
 ![Adafruit key](image/Key.jpg)
 
 
-## Step 4: Upload the code
+## Step 5: Upload the code
 Upload your code and open the Serial Monitor to verify if your WiFi is functioning. To upload the code, click the blue arrow in the top left corner. 
 
 ![Upload](image/Upload.jpg)
@@ -201,6 +221,36 @@ Since the connection worked you can see the time you click on the button on your
 ![Clicking working in Adafruit](image/AdafruitWorking.jpg)
 
 ![Clicking working numbers](image/Click.jpg)
+
+## Problem solving
+### Serial Monitor
+Can't see the Serial Monitor working? It could be that the wrong baud is sellected. Check the baud on your right, this should be 115200.
+
+![No connection](image/NoConnect.jpg)
+
+Having trouble locating the Serial Monitor? Click on the icon in the top right corner to open it. Then, set the baud rate to 115200 at the bottom. Upload the code again, and you should see the connection being established.
+
+![No Serial Monitor](image/ConnectionBot.jpg)
+
+### Port
+Do you get an error message about your port not being connected but you got the board right? 
+
+![Port Disabled](image/PortDisabled.jpg)
+![No Port](image/NoPort.jpg)
+
+There are some things you can do to fix that:
+* Check the USB cable: Ensure you're using a data cable, not just a charging cable. Try a different USB cable if possible.
+* Install drivers: NodeMCU usually needs CH340G or CP210x drivers.
+Download and install the appropriate driver for your board.
+* Restart your computer
+* Select the correct board
+Try different USB ports
+* Update Arduino IDE
+* Check Windows security (Windows): Sometimes Windows security can block new USB devices
+
+## Sources
+* [OpenWeather](https://openweathermap.org/)
+* [DfETsrIOT Show me Love](https://icthva.sharepoint.com/:w:/s/FDMCI_ORG__CMD-Amsterdam/ESGyAezw-g9Nu46CfppUhk8BYspIz1gFlXjr0YSv6hBpNg?e=U5EPx7)
 
 
 
