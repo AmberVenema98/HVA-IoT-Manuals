@@ -348,7 +348,7 @@ Upload your code and open the Serial Monitor to verify if your WiFi is functioni
 
 You should see something like this:
 
-![Weather in Netherlands](image/Weatherdutch.jpg)
+![Weather in Netherlands](image/Weather-dutch.jpg)
 
 And as you can see the temperature is correct.
 
