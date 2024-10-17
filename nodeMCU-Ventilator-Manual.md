@@ -441,36 +441,116 @@ You can see your Key on the top right away. Save this for now.
 
 ## Step 5: Getting Notifications
 
-
 ### Code
-
-Add this IFTTT code to the OpenWeather code in Arduino IDE:
+To get the notifications add this IFTTT code to the OpenWeather code in Arduino IDE under your country code. This works for both Boards:
 
 ``` cpp
+// IFTTT Webhook 
+const char* iftttServer = "maker.ifttt.com";
+const String iftttWebhookKey = "XXXXXXXXXX";  // IFTTT Webhook Key
+const String iftttEventName = "temperature_alert";   // IFTTT Event Name
+
+bool alertSent = false;  // Prevents multiple notifications for the same temperature
 ```
-If you see this code than the autentication was failed. This is because the Webhook key is not correct. Try adding the correct key and see if you see any change.
 
-![IFTTT 401](image/ConnectionBot.jpg)
+Put this between 'void setup' and 'void loop':
 
-If you see this code than the code worked.
+``` cpp
+void sendIFTTTNotification(float temperature) {
+  WiFiClient client;
+  HTTPClient http;
+  
+  String url = "http://maker.ifttt.com/trigger/" + iftttEventName + "/with/key/" + iftttWebhookKey;
+  String jsonString = "{\"value1\":\"" + String(temperature, 1) + "\"}";
+  
+  http.begin(client, url);
+  http.addHeader("Content-Type", "application/json");
+  
+  int httpResponseCode = http.POST(jsonString);
+  
+  if (httpResponseCode > 0) {
+    Serial.print("IFTTT Notification sent. Response code: ");
+    Serial.println(httpResponseCode);
+  } else {
+    Serial.print("Error sending IFTTT notification: ");
+    Serial.println(httpResponseCode);
+  }
+  
+  http.end();
+}
+```
 
-![IFTTT 200](image/ConnectionBot.jpg)
+And copy paste the new 'void loop'
 
-You than should see the notification on your phone:
+``` cpp
+void loop() {
+  if ((millis() - lastTime) > timerDelay) {
+    if(WiFi.status()== WL_CONNECTED){
+      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
+     
+      String jsonBuffer = httpGETRequest(serverPath.c_str());
+      Serial.println(jsonBuffer);
+      
+      DynamicJsonDocument doc(1024);
+      deserializeJson(doc, jsonBuffer);
+      
+      if (doc.isNull()) {
+        Serial.println("Parsing input failed!");
+        return;
+      }
 
-![IFTTT Notification](image/ConnectionBot.jpg)
+       float temperature = doc["main"]["temp"].as<float>() - 273.15; // Conversie van Kelvin naar Celsius
+   
+      Serial.println("Parsed JSON data:");
+      Serial.print("Temperature: ");
+      Serial.println(temperature);
+      Serial.print("Pressure: ");
+      Serial.println(doc["main"]["pressure"].as<int>());
+      Serial.print("Humidity: ");
+      Serial.println(doc["main"]["humidity"].as<int>());
+      Serial.print("Wind Speed: ");
+      Serial.println(doc["wind"]["speed"].as<float>());
 
-If not, check if you allow the app to send notifications. Go back to the app, you probably should see this right away:
+       // Check temperatuur en stuur notificatie indien nodig
+      if (temperature > 15 && !alertSent) {
+        sendIFTTTNotification(temperature);
+        alertSent = true;
+      } else if (temperature <= 15) {
+        alertSent = false; // Reset de alert status als de temperatuur weer onder 25 komt
+      }
+    }
+    else {
+      Serial.println("WiFi Disconnected");
+    }
+    lastTime = millis();
+  }
+}
+```
 
-![Allow notifications](image/ConnectionBot.jpg)
+After uploading the new code you should see the notification on your phone:
+
+![IFTTT Notification](image/GetNotification.jpg)
+
+Didn't you get any notification? Than there could be something wrong with the code.
+If you see this error than the autentication was failed. This is because the Webhook key is not correct. Try adding the correct key and see if you see any change.
+
+![IFTTT 401](image/IFTTT401.jpg)
+
+If you see this code than the code worked and you should get a notification.
+
+![IFTTT 200](image/IFTTT200.jpg)
+
+If you still dont see any notifications, check if you allowed the app to send the notifications. Go back to the app, you probably should see this right away:
+
+![Allow notifications](image/AllowNotification.jpg)
 
 If you didn't see that message or you already clicked on "Maybe later" than go to "My Applets" and you should see a permission issue:
 
-![Permission issue](image/ConnectionBot.jpg)
+![Permission issue](image/PermissionIssue.jpg)
 
 Click on the issue and allow the display notifications.
 
-![Allow display notification](image/ConnectionBot.jpg)
+![Allow display notification](image/DisplayNotification.jpg)
 
 Go back to Arduino IDE and run the code again than you should see the notification pop-up on your phone screen.
 
@@ -510,6 +590,7 @@ Make sure to use the underscore with your Event Name and no other charakters tha
 While writing the message for the action field make sure to add the value into your message and use uppercase.
 
 ![Write action message](image/ActionField.jpg)
+
 
 ## Sources
 * https://openweathermap.org/current#geo
