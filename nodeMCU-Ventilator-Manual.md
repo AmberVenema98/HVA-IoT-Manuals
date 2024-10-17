@@ -242,11 +242,21 @@ This is the code for the ESP8266 Board:
 const char* ssid = "REPLACE_WITH_YOUR_SSID";
 const char* password = "REPLACE_WITH_YOUR_PASSWORD";
 
+// Your Domain name with URL path or IP address with path
 String openWeatherMapApiKey = "REPLACE_WITH_YOUR_OPEN_WEATHER_MAP_API_KEY";
+// Example:
+//String openWeatherMapApiKey = "bd939aa3d23ff33d3c8f5dd1dd435";
+
+// Replace with your country code and city
 String city = "Haarlem";
 String countryCode = "NL";
 
+// THE DEFAULT TIMER IS SET TO 10 SECONDS FOR TESTING PURPOSES
+// For a final application, check the API call limits per hour/minute to avoid getting blocked/banned
 unsigned long lastTime = 0;
+// Timer set to 10 minutes (600000)
+//unsigned long timerDelay = 600000;
+// Set timer to 10 seconds (10000)
 unsigned long timerDelay = 10000;
 
 void setup() {
@@ -265,7 +275,9 @@ void setup() {
 }
 
 void loop() {
+  // Send an HTTP GET reque
   if ((millis() - lastTime) > timerDelay) {
+    // Check WiFi connection status
     if(WiFi.status()== WL_CONNECTED){
       String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "," + countryCode + "&APPID=" + openWeatherMapApiKey;
      
@@ -300,9 +312,11 @@ void loop() {
 String httpGETRequest(const char* serverName) {
   WiFiClient client;
   HTTPClient http;
-   
+  
+  // Your Domain name with URL path or IP address with path
   http.begin(client, serverName);
  
+  // Send HTTP POST request
   int httpResponseCode = http.GET();
  
   String payload = "{}"; 
@@ -316,6 +330,7 @@ String httpGETRequest(const char* serverName) {
     Serial.print("Error code: ");
     Serial.println(httpResponseCode);
   }
+  // Free resources
   http.end();
   return payload;
 }
@@ -425,6 +440,7 @@ You can see your Key on the top right away. Save this for now.
 ![Get IFTTT Key](image/IFTTTKey.jpg)
 
 ## Step 5: Getting Notifications
+
 
 ### Code
 
