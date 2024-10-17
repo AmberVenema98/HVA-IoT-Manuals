@@ -591,6 +591,29 @@ While writing the message for the action field make sure to add the value into y
 
 ![Write action message](image/ActionField.jpg)
 
+#### Notification
+Didn't get any notification? Than there could me something wrong with the code.
+If you see this error than the autentication was failed. This is because the Webhook key is not correct. Try adding the correct key and see if you see any change.
+
+![IFTTT 401](image/IFTTT401.jpg)
+
+If you see this code than the code worked.
+
+![IFTTT 200](image/IFTTT200.jpg)
+
+If you still didn't get any notification, check if you allowed the app to send notifications. Go back to the app, you probably should see this right away:
+
+![Allow notifications](image/AllowNotification.jpg)
+
+If you didn't see that message or you already clicked on "Maybe later" than go to "My Applets" and you should see a permission issue:
+
+![Permission issue](image/PermissionIssue.jpg)
+
+Click on the issue and allow the display notifications.
+
+![Allow display notification](image/DisplayNotification.jpg)
+
+Go back to Arduino IDE and run the code again than you should see the notification pop-up on your phone screen.
 
 ## Sources
 * https://openweathermap.org/current#geo
