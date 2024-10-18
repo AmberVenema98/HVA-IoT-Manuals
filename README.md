@@ -8,7 +8,7 @@ In this project, you'll be making two NodeMCUs communicate with each other. The 
 
 ![Node MCU Show Me Love](nodeMCU-ShowMeLove-Manual.md)
 
-# :wind_face::satellite_antenna: Smart Fan Simulation with Weather API and IFTTT Notifications
+# :wind_face::globe_with_meridians: Smart Fan Simulation with Weather API and IFTTT Notifications
 This guide explains how to create a simulation of a smart fan that automatically turns on based on the current weather. The NodeMCU will get temperature data from a weather API, and when the temperature reaches a certain level, the fan will turn on. Additionally, you'll receive a notification on your phone through IFTTT when this happens. 
 
 ![Node MCU Smart Ventilator](nodeMCU-Ventilator-Manual.md)
