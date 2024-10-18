@@ -48,7 +48,7 @@ To interact with the Telegram bot, we’ll use the Universal Telegram Bot Librar
 Go to Sketch > Include Library > Manage Libraries and add “ArduinoJson” Benoit Blanchon. We are using version 5.13.5.
 
 ![Library](image/AddLibrary.jpg)
-![ArduinoJson](image/ArduinoJson.jpg)
+![ArduinoJson](image/arduinojson.jpg)
 
 ### Universal Telegram Bot
 And add the 'universal telegram bot' via the 'Library Manager' of Arduino.
