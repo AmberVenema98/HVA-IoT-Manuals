@@ -19,8 +19,6 @@ Like this one:
 ## :satellite: Step 1: Make a Feed in Adafruit 
 If you not yet have an account on Adafruit: go to the [website](https://io.adafruit.com/), click on "Get started for free" and follow the steps
 
-![Arduino button](image/Account.jpg)
-
 After creating your account, you will be directed to your Account Settings. From there, navigate to IO > Feed > New Feed.
 
 ![Feed](image/NewFeed.jpg)
