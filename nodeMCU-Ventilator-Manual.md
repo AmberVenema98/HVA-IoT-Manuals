@@ -1,4 +1,4 @@
-# Smart Breeze
+# :wind_face::globe_with_meridians: Smart Breeze
 
 ## Introduction
 In this project we create a simulation of a smart ventilator with a NodeMCU and the OpenWeatherMap API. The goal is to collect real-time weather data, such as temperature, and send notifications. 

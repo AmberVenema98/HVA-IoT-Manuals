@@ -1,4 +1,4 @@
-# Node MCU Show Me Love
+# :heart::electric_plug: Node MCU Show Me Love
 
 ## Introduction
 The goal is to have your nodes communicate in pairs. Node 1 sends something to node 2 and it responds by sending it to an output (LED strip, vibrating motor, etc.).
