@@ -32,7 +32,7 @@ A new window will now appear. Enter a name for your Feed and write a brief descr
 ## :books: Step 2: Adafruit Library
 Open up Arduino and go to Sketch > Include Library > Manage Libraries. 
 
-![Arduino Library](image/library.jpg)
+![Arduino Library](image/AddLibrary.jpg)
 
 Search for Adafruit IO Arduino by Adafruit and click on Install.
 

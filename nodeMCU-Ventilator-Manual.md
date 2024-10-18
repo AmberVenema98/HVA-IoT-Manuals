@@ -67,7 +67,7 @@ If you don't yet have Arduino IDE installed, download it [here](https://www.ardu
 ### Library
 You also need to install the Arduino_JSON library. You can install this library in the Arduino IDE Library Manager. Just go to Sketch > Include Library > Manage Libraries and search for "Arduino_JSON" by Arduino. Download the latest version.
 
-![Add library](image/Library.jpg)
+![Add library](image/AddLibrary.jpg)
 
 ![Add ArduinoJson](image/Arduino_JSON.jpg)
 
