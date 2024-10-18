@@ -67,7 +67,7 @@ If you don't yet have Arduino IDE installed, download it [here](https://www.ardu
 ### Library
 You also need to install the Arduino_JSON library. You can install this library in the Arduino IDE Library Manager. Just go to Sketch > Include Library > Manage Libraries and search for "Arduino_JSON" by Arduino. Download the latest version.
 
-![Add library](image/Librarie.jpg)
+![Add library](image/Library.jpg)
 
 ![Add ArduinoJson](image/Arduino_JSON.jpg)
 
@@ -116,7 +116,7 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices.
 
-## :white_sun_behind_cloud: Step 3: Connecting to OpenWeatherMap
+## :cloud: Step 3: Connecting to OpenWeatherMap
 If you try to use code intended for an ESP32 Board on an ESP8266 Board, you'll encounter an error related to the WiFi functionality.
 
 ![WiFi error ESP8266](image/WiFiCrash.jpg)
