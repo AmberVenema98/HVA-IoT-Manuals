@@ -11,7 +11,7 @@ This guide shows how to control the ESP32 or ESP8266 NodeMCU GPIOs from anywhere
 * WIFI connection
 * Micro USB cable
 
-## Step 1: Making a bot
+## :robot: Step 1: Making a bot
 Go to Google Play or App Store, download and install Telegram. 
 
 ![Telegram](image/telegram.jpg)
@@ -41,7 +41,7 @@ Start a conversation with that bot and type /getid. You will get a reply back wi
 
 ![IDBot ID](image/idbot2.jpg)
 
-## Step 2: Add Libraries 
+## :books: Step 2: Add Libraries 
 To interact with the Telegram bot, we’ll use the Universal Telegram Bot Library created by Brian Lough that provides an easy interface for the Telegram Bot API. And we also need AruinoJson.
 
 ### ArduinoJson
@@ -56,7 +56,7 @@ Choose for the 1.1.0 version
 
 ![Library](image/library-universal2.jpg)
 
-## Step 3: Echobot
+## :speaking_head: Step 3: Echobot
 Open 'echobot' via File > Examples > UniversalTelegramBot > ESP8266 > EchoBot
 
 ![Library echobot](image/Echo-bot.jpg)
@@ -291,7 +291,7 @@ Insert your chat ID. The one you’ve got from the IDBot.
 #define CHAT_ID "XXXXXXXXXX"
 ```
 
-## Step 4: Chat with Bot
+## :speech_balloon: Step 4: Chat with Bot
 Now display the text in your serial monitor.
 
 You can edit within the loop of numNewMessages to add intelligence and customize the text it returns. Try sending an additional message using a second call to sendMessage. 
@@ -300,7 +300,7 @@ You can edit within the loop of numNewMessages to add intelligence and customize
 bot.sendMessage(bot.messages[i].chat_id, "Are you alright comrade?", "");
 ```
 
-## Step 5: LED Light
+## :sparkles: Step 5: LED Light
 We are now going to apply rudimentary intelligence. Within the same loop we create an if / else if that listens to .text value.
 
 If this value is equal to your command, for example “lights on”, turn on the built-in LED 
@@ -340,7 +340,7 @@ if (text == "/start") {
       }
     }
 ```
-## Step 6: Port and Board
+## :computer: Step 6: Port and Board
 Choose for the NodeMCU 1.0 (ESP-12E Module) and your connected port. To find this go to Tools > Board > esp8266 > NodeMCU 1.0 (ESP-12E Module).
 
 ![Board](image/Board.jpg)
@@ -360,7 +360,7 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices.
 
-## Step 7: Upload code
+## :arrow_up: Step 7: Upload code
 Upload your code and open the Serial Monitor to verify if your WiFi is functioning. To upload the code, click the blue arrow in the top left corner. 
 
 ![Upload](image/Upload.jpg)
@@ -374,7 +374,7 @@ Having trouble locating the Serial Monitor? Click on the icon in the top right c
 ![No Serial Monitor](image/ConnectionBot.jpg)
 
 
-## Step 8: Turn The Lights On!
+## :high_brightness: Step 8: Turn The Lights On!
 Now open your Telegram application on your smartphone. Go to BotFather and find the link to your newly created bot. The link should look like: t.me/(your named bot).
 
 ![Link bot](image/bot3.jpg)
@@ -391,7 +391,7 @@ Now you should see the light turning on:
 
 ![Led on](image/Light.jpg)
 
-## Problem solving
+## :bulb: Problem solving
 ### Serial Monitor
 Can't see the Serial Monitor working? It could be that the wrong baud is sellected. Check the baud on your right, this should be 115200.
 
@@ -417,12 +417,12 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices
 
-## Sources
+## :information_source: Sources
 * [DfETsr IOT Telegram](https://icthva.sharepoint.com/:w:/r/sites/FDMCI_ORG__CMD-Amsterdam/_layouts/15/Doc.aspx?sourcedoc=%7B6e77c9be-5af2-4c98-b951-5b30757ff56a%7D&action=view&wdAccPdf=0&wdparaid=1A6631C3)
 * [Random Nerd Tutorials Telegram](https://randomnerdtutorials.com/telegram-control-esp32-esp8266-nodemcu-outputs/)
 * [Microcontrollerslab Telegram](https://microcontrollerslab.com/telegram-esp32-esp8266-nodemcu-control-gpios-leds/)
 
-## What went wrong?
+## :question: What went wrong?
 What i saw when downloading Universal Telegram Bot was:
 
 ![Universal error](image/library-universal.jpg)

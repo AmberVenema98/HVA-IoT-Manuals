@@ -15,7 +15,7 @@ In this manual I will tell you to get the notification on your phone through Ard
 * API-key from [OpenWeatherMap](https://openweathermap.org/)
 * Key from [IFTTT](https://ifttt.com/) (Sending automatic notifications)
 
-## Step 1: Get API from OpenWeatherMap
+## :globe_with_meridians: Step 1: Get API from OpenWeatherMap
 ### Create an account
 First we make an account on [OpenweatherMap](https://openweathermap.org/). Go to "Sign Up", click on "Create an Account" and follow the steps.
 
@@ -58,7 +58,7 @@ Copy your URL into your browser, and the API will return a bunch of information 
 
 You’ll see how to use this information to get specific data like temperature, humidity, pressure, wind speed, etc.
 
-## Step 2: Install Arduino IDE and libraries
+## :hammer_and_wrench: Step 2: Install Arduino IDE and libraries
 ### Arduino
 If you don't yet have Arduino IDE installed, download it [here](https://www.arduino.cc/en/software) and choose the right Operating system for you.
 
@@ -116,7 +116,7 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices.
 
-## Step 3: Connecting to OpenWeatherMap
+## :white_sun_behind_cloud: Step 3: Connecting to OpenWeatherMap
 If you try to use code intended for an ESP32 Board on an ESP8266 Board, you'll encounter an error related to the WiFi functionality.
 
 ![WiFi error ESP8266](image/WiFiCrash.jpg)
@@ -375,7 +375,7 @@ Having trouble locating the Serial Monitor? Click on the icon in the top right c
 
 ![No Serial Monitor](image/ConnectionBot.jpg)
 
-## Step 4: IFTTT Applet
+## :calling: Step 4: IFTTT Applet
 
 To make an IFTTT Applet you need to install the IFTTT app first
 
@@ -439,7 +439,7 @@ You can see your Key on the top right away. Save this for now.
 
 ![Get IFTTT Key](image/IFTTTKey.jpg)
 
-## Step 5: Getting Notifications
+## :bell: Step 5: Getting Notifications
 
 ### Code
 To get the notifications add this IFTTT code to the OpenWeather code in Arduino IDE under your country code. This works for both Boards:
@@ -554,7 +554,7 @@ Click on the issue and allow the display notifications.
 
 Go back to Arduino IDE and run the code again than you should see the notification pop-up on your phone screen.
 
-## Problem Solving
+## :bulb: Problem Solving
 ### Serial Monitor
 Can't see the Serial Monitor working? It could be that the wrong baud is sellected. Check the baud on your right, this should be 115200.
 
@@ -615,9 +615,9 @@ Click on the issue and allow the display notifications.
 
 Go back to Arduino IDE and run the code again than you should see the notification pop-up on your phone screen.
 
-## Sources
-* https://openweathermap.org/current#geo
-* https://randomnerdtutorials.com/esp32-http-get-open-weather-map-thingspeak-arduino/
-* https://ifttt.com/explore/weather-automations
-* https://www.learnrobotics.org/blog/connect-arduino-to-ifttt-for-iot-projects/
+## :information_source: Sources
+* [OpenWeather](https://openweathermap.org/current#geo)
+* [Tutorial OpenWeater ESP32](https://randomnerdtutorials.com/esp32-http-get-open-weather-map-thingspeak-arduino/)
+* [IFTTT Weather automations](https://ifttt.com/explore/weather-automations)
+* [Connect Arduino to IFTTT](https://www.learnrobotics.org/blog/connect-arduino-to-ifttt-for-iot-projects/)
 

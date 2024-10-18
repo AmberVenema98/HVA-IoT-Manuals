@@ -16,7 +16,7 @@ Like this one:
 
 * Adafruit IO account
 
-## Step 1: Make a Feed in Adafruit 
+## :satellite: Step 1: Make a Feed in Adafruit 
 If you not yet have an account on Adafruit: go to the [website](https://io.adafruit.com/), click on "Get started for free" and follow the steps
 
 ![Arduino button](image/Account.jpg)
@@ -29,7 +29,7 @@ A new window will now appear. Enter a name for your Feed and write a brief descr
 
 ![MakingFeed](image/MakingFeed.jpg)
 
-## Step 2: Adafruit Library
+## :books: Step 2: Adafruit Library
 Open up Arduino and go to Sketch > Include Library > Manage Libraries. 
 
 ![Arduino Library](image/library.jpg)
@@ -141,7 +141,7 @@ void loop() {
 }
 ```
 
-## Step 3: Port and Board
+## :computer: Step 3: Port and Board
 Choose for the NodeMCU 1.0 (ESP-12E Module) and your connected port. To find this go to Tools > Board > esp8266 > NodeMCU 1.0 (ESP-12E Module).
 
 ![Board](image/Board.jpg)
@@ -161,7 +161,7 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices.
 
-## Step 4: Install Key Switch
+## :key: Step 4: Install Key Switch
 Connect your push button: S (signal) to D0, - to GND and the other pin to 3.3V. So like this:
 
 ![Druk knop](image/DrukKnop.jpg)
@@ -201,7 +201,7 @@ To find your key go to your account in Adafruit IO and click on the Yellow Key b
 ![Adafruit key](image/Key.jpg)
 
 
-## Step 5: Upload the code
+## :arrow_up: Step 5: Upload the code
 Upload your code and open the Serial Monitor to verify if your WiFi is functioning. To upload the code, click the blue arrow in the top left corner. 
 
 ![Upload](image/Upload.jpg)
@@ -222,7 +222,7 @@ Since the connection worked you can see the time you click on the button on your
 
 ![Clicking working numbers](image/Click.jpg)
 
-## Problem solving
+## :bulb: Problem solving
 ### Serial Monitor
 Can't see the Serial Monitor working? It could be that the wrong baud is sellected. Check the baud on your right, this should be 115200.
 
@@ -248,11 +248,11 @@ Try different USB ports
 * Update Arduino IDE
 * Check Windows security (Windows): Sometimes Windows security can block new USB devices
 
-## Sources
-* [OpenWeather](https://openweathermap.org/)
+## :information_source: Sources
+* [Adafruit](https://io.adafruit.com/)
 * [DfETsrIOT Show me Love](https://icthva.sharepoint.com/:w:/s/FDMCI_ORG__CMD-Amsterdam/ESGyAezw-g9Nu46CfppUhk8BYspIz1gFlXjr0YSv6hBpNg?e=U5EPx7)
 
-## What went wrong?
+## :question: What went wrong?
 I was able to get the Key switch working, but the two Nodes didn’t communicate with each other. I tried using two different Arduino IDE files, one with the Key switch code and one without. After discussing with a classmate, she explained that "Adafruitio_20_shared_feed_write" was for one Node, and "2. Adafruitio_21_feedread" was for the other. However, I still didn’t fully understand how the two were supposed to connect.
 
 Since I couldn’t find any helpful information online, I decided to focus on making the Key switch work, which I successfully managed to do.
